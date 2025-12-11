@@ -1,0 +1,42 @@
+services:
+  devices.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    ports:
+      - "8080"
+      - "8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      - devicesdb
+    networks:
+      - dev-network
+
+  devicesdb:
+    container_name: devicesdb
+    image: postgres
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${Database__Username}
+      - POSTGRES_PASSWORD=${Database__Password}
+      - POSTGRES_DB=${Database__Name}
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_devices:/var/lib/postgresql/data/
+    networks:
+      - dev-network
+
+networks: 
+  dev-network:
+    driver: bridge
+
+volumes:
+  postgres_devices:

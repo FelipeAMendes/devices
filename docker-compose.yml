@@ -1,0 +1,14 @@
+services:
+  devices.api:
+    image: ${DOCKER_REGISTRY-}devicesapi
+    build:
+      context: .
+      dockerfile: src/Devices.Api/Dockerfile
+    env_file:
+      - .env
+  
+  devicesdb:
+    container_name: devicesdb
+    image: postgres
+    env_file:
+      - .env
