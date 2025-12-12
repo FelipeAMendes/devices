@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Lib", "2-Lib", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apis", "Apis", "{D181F1AA-3067-485C-9AB9-BD36DD9DCBCC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Apis", "1-Apis", "{D181F1AA-3067-485C-9AB9-BD36DD9DCBCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devices.Domain", "src\Devices.Domain\Devices.Domain.csproj", "{BA4BB16A-821F-4476-8166-D85E3FE2B7B1}"
 EndProject
@@ -15,19 +15,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devices.Infrastructure", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devices.Api", "src\Devices.Api\Devices.Api.csproj", "{93EA1191-22C7-439D-A134-D798991DF41D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FC1086B6-E524-4981-9640-C2580229677C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Tests", "4-Tests", "{FC1086B6-E524-4981-9640-C2580229677C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devices.Application.Tests", "tests\Devices.Application.Tests\Devices.Application.Tests.csproj", "{E056B79C-6D11-4F56-8077-8F7FBC5C4A7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devices.Domain.Tests", "tests\Devices.Domain.Tests\Devices.Domain.Tests.csproj", "{6743ED5A-3F1E-4322-A50E-3CA1A6B2787C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9CFA2C0D-6B47-4552-9EEF-50713FC61891}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Shared", "3-Shared", "{9CFA2C0D-6B47-4552-9EEF-50713FC61891}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devices.Shared", "src\Devices.Shared\Devices.Shared.csproj", "{9065C252-EA6A-4066-B622-9C028D4BE2DE}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "iac\docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iac", "iac", "{7234BBC9-CD23-465B-8CF2-7532696178B9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-iac", "5-iac", "{7234BBC9-CD23-465B-8CF2-7532696178B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
