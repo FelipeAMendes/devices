@@ -2,7 +2,6 @@
 using Devices.Infrastructure.Devices.Configurations;
 using Devices.Shared.Extensions.ModelBuilderExtensions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Reflection;
 
@@ -39,17 +38,5 @@ public class AppDbContext : DbContext
         optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
 
         base.OnConfiguring(optionsBuilder);
-    }
-}
-
-//Migrations
-public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
-{
-    public AppDbContext CreateDbContext(string[] args)
-    {
-        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        optionsBuilder.UseNpgsql("");
-
-        return new AppDbContext(optionsBuilder.Options);
     }
 }

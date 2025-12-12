@@ -36,9 +36,4 @@ public class DeviceRepository(IDataContext context) : IDeviceRepository
     {
         return await _context.UpdateAsync(device, ct);
     }
-
-    public async Task<bool> DeleteAsync(Device device, CancellationToken ct)
-    {
-        return await _context.DeleteAsync(device, ct);
-    }
 }

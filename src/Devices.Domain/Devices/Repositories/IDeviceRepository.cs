@@ -10,5 +10,4 @@ public interface IDeviceRepository
     Task<IEnumerable<Device>> GetAllAsync(Expression<Func<Device, bool>> predicate, CancellationToken ct);
     Task<bool> CreateAsync(Device device, CancellationToken ct);
     Task<bool> UpdateAsync(Device device, CancellationToken ct);
-    Task<bool> DeleteAsync(Device device, CancellationToken ct);
 }
