@@ -32,6 +32,7 @@ public static class DependencyInjection
             app.UseSwaggerUI();
         }
 
+        app.ConfigureSwaggerEndpoint();
         app.UseHttpsRedirection();
         app.UseRouting();
         app.MapControllers();
@@ -59,6 +60,20 @@ public static class DependencyInjection
 
                 return new BadRequestObjectResult(response);
             };
+        });
+    }
+
+    private static void ConfigureSwaggerEndpoint(this WebApplication app)
+    {
+        app.Use(async (context, next) =>
+        {
+            if (context.Request.Path == "/")
+            {
+                context.Response.Redirect("/swagger");
+                return;
+            }
+
+            await next();
         });
     }
 }

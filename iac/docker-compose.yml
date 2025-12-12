@@ -3,7 +3,7 @@ services:
     image: ${DOCKER_REGISTRY-}devicesapi
     build:
       context: ../src/Devices.Api
-      dockerfile: ../src/Devices.Api/Dockerfile
+      dockerfile: ../Devices.Api/Dockerfile
     env_file:
       - .env
   
