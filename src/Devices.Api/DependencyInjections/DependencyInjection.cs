@@ -1,5 +1,6 @@
 ﻿using Devices.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -18,7 +19,13 @@ public static class DependencyInjection
                 });
 
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        services.AddSwaggerGen(c =>
+         {
+             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+             c.IncludeXmlComments(xmlPath);
+         });
+
         services.ConfigureDefaultErrors();
 
         return services;

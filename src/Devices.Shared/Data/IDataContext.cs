@@ -11,7 +11,7 @@ public interface IDataContext
     Task<bool> DeleteAsync<TEntity>(TEntity entity, CancellationToken ct) where TEntity : IEntity;
     Task<TEntity?> GetByIdAsync<TEntity>(Guid id, CancellationToken ct) where TEntity : class, IEntity;
     Task<TEntity?> FirstOrDefaultAsync<TEntity>(bool readOnly, Expression<Func<TEntity, bool>> where, CancellationToken ct) where TEntity : class;
-    Task<List<TEntity>> AllAsync<TEntity>(CancellationToken ct) where TEntity : class;
+    Task<List<TEntity>> WhereAsync<TEntity>(bool readOnly, Expression<Func<TEntity, bool>> where, CancellationToken ct) where TEntity : class;
     Task<bool> AnyAsync<TEntity>(Expression<Func<TEntity, bool>> where, CancellationToken ct) where TEntity : class;
 
     Task BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.Serializable);

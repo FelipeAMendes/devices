@@ -2,9 +2,9 @@
 using Devices.Domain.Devices.Specifications;
 using FluentValidation;
 
-namespace Devices.Application.Services.Dtos;
+namespace Devices.Application.Devices.Shared.Dtos;
 
-public record DeviceDto(string Name, string Brand, DeviceState State);
+public record DeviceDto(Guid Id, string Name, string Brand, DeviceState State, DateTime CreationTime);
 
 public class DeviceDtoValidator : AbstractValidator<DeviceDto>
 {

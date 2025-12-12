@@ -1,7 +1,6 @@
-﻿using Devices.Application.Services.Mappers;
+﻿using Devices.Application.Devices.Shared.Mappers;
 using Devices.Shared.Behaviors;
 using FluentValidation;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -9,7 +8,7 @@ namespace Devices.Application.DependencyInjections;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplicationDependencies(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddApplicationDependencies(this IServiceCollection services)
     {
         services.AddMediatR(config =>
         {

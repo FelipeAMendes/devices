@@ -28,5 +28,7 @@ public class DeviceConfiguration : IEntityTypeConfiguration<Device>
         builder.Property(m => m.CreationTime)
                .HasColumnType("timestamp without time zone")
                .IsRequired();
+
+        builder.Ignore(x => x.IsInUse);
     }
 }

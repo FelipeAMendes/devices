@@ -5,7 +5,7 @@ using Devices.Infrastructure.DependencyInjections;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApiServices(builder.Configuration);
-builder.Services.AddApplicationDependencies(builder.Configuration);
+builder.Services.AddApplicationDependencies();
 builder.Services.AddInfrastructureDependencies(builder.Configuration);
 
 var app = builder.Build();

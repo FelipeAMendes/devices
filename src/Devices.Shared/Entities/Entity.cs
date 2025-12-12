@@ -8,4 +8,9 @@ public abstract class Entity<T> : BaseValidation<T>, IEntity where T : IValidato
     public Guid Id { get; set; }
     public DateTime CreationTime { get; set; }
     public bool Removed { get; set; }
+
+    public Entity()
+    {
+        Id = Guid.NewGuid();
+    }
 }

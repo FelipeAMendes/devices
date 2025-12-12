@@ -19,15 +19,10 @@ public class DeviceRepository(IDataContext context) : IDeviceRepository
         return await _context.GetByIdAsync<Device>(id, ct);
     }
 
-    public async Task<Device?> GetByExpressionAsync(Expression<Func<Device, bool>> predicate, CancellationToken ct)
-    {
-        return await _context.FirstOrDefaultAsync(readOnly: false, predicate, ct);
-    }
-
-    public async Task<IEnumerable<Device>> GetAllAsync(CancellationToken ct)
+    public async Task<IEnumerable<Device>> GetAllAsync(Expression<Func<Device, bool>> predicate, CancellationToken ct)
     {
         var devices = await _context
-            .AllAsync<Device>(ct);
+            .WhereAsync(readOnly: true, predicate, ct);
 
         return devices;
     }

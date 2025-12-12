@@ -27,7 +27,8 @@ public class AppDbContext : DbContext
 
         modelBuilder
             .ConfigureEntities(typeof(Device).Assembly)
-            .ApplyConfiguration(new DeviceConfiguration());
+            .ApplyConfiguration(new DeviceConfiguration())
+            .ConfigureGlobalFilter();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

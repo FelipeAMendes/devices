@@ -10,8 +10,9 @@ public class Device : Entity<DeviceValidator>
     public string Name { get; private set; }
     public string Brand { get; private set; }
     public DeviceState State { get; private set; }
+    public bool IsInUse => State is DeviceState.InUse;
 
-    public Device(string name, string brand, DeviceState state)
+    public Device(string name, string brand, DeviceState state) : base()
     {
         Name = name;
         Brand = brand;
@@ -25,6 +26,18 @@ public class Device : Entity<DeviceValidator>
         Brand = brand;
         State = state;
     }
+
+    public bool CanUpdateWhenStateIsInUse(string newName, string newBrand)
+    {
+        if (!IsInUse)
+            return true;
+
+        return Name.Equals(newName) && Brand.Equals(newBrand);
+    }
+
+    public bool CanDelete() => !IsInUse;
+
+    public bool Delete() => Removed = true;
 }
 
 public class DeviceValidator : AbstractValidator<Device>

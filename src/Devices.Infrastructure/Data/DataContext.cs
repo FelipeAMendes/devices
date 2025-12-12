@@ -83,19 +83,20 @@ public class DataContext(AppDbContext applicationContext) : IDataContext
         return await this.ExecuteRetry(GetFirstOrDefault);
     }
 
-    public async Task<List<TEntity>> AllAsync<TEntity>(CancellationToken ct) where TEntity : class
+    public async Task<List<TEntity>> WhereAsync<TEntity>(bool readOnly, Expression<Func<TEntity, bool>> where, CancellationToken ct)
+        where TEntity : class
     {
-        async Task<List<TEntity>> GetAll()
+        async Task<List<TEntity>> GetList()
         {
-            var entities = await _applicationContext
+            var queryable = _applicationContext
                 .GetDbSet<TEntity>()
-                .AsNoTracking()
-                .ToListAsync(ct);
+                .AsNoTracking(readOnly)
+                .Where(where);
 
-            return entities;
+            return await queryable.ToListAsync(ct);
         }
 
-        return await this.ExecuteRetry(GetAll);
+        return await this.ExecuteRetry(GetList);
     }
 
     public async Task<bool> AnyAsync<TEntity>(Expression<Func<TEntity, bool>> where, CancellationToken ct) where TEntity : class
