@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace Devices.Application.Devices.Create.Commands;
 
-public record CreateDeviceCommandResult(Guid Id) : ICommandResult;
+public record CreateDeviceCommandResult() : ICommandResult;
 
 public record CreateDeviceCommand(DeviceDto Device) : ICommand<CommandResult<CreateDeviceCommandResult>>;
 

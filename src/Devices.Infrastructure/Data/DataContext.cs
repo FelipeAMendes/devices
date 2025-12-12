@@ -68,21 +68,6 @@ public class DataContext(AppDbContext applicationContext) : IDataContext
         return await this.ExecuteRetry(GetById);
     }
 
-    public async Task<TEntity?> FirstOrDefaultAsync<TEntity>(bool readOnly, Expression<Func<TEntity, bool>> where, CancellationToken ct)
-        where TEntity : class
-    {
-        async Task<TEntity?> GetFirstOrDefault()
-        {
-            var entity = await _applicationContext.GetDbSet<TEntity>()
-                .AsNoTracking(readOnly)
-                .FirstOrDefaultAsync(where, ct);
-
-            return entity;
-        }
-
-        return await this.ExecuteRetry(GetFirstOrDefault);
-    }
-
     public async Task<List<TEntity>> WhereAsync<TEntity>(bool readOnly, Expression<Func<TEntity, bool>> where, CancellationToken ct)
         where TEntity : class
     {

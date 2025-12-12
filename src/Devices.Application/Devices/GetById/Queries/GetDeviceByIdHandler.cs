@@ -5,7 +5,7 @@ using Mapster;
 
 namespace Devices.Application.Devices.GetById.Queries;
 
-public class GetAllDevicesHandler(IDeviceRepository resumeRepository): IQueryHandler<GetDeviceByIdQuery, QueryResult<GetDeviceByIdResult>>
+public class GetDeviceByIdHandler(IDeviceRepository resumeRepository): IQueryHandler<GetDeviceByIdQuery, QueryResult<GetDeviceByIdResult>>
 {
     private readonly IDeviceRepository _resumeRepository = resumeRepository;
 

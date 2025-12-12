@@ -17,6 +17,6 @@ public class CreateDeviceHandler(IDeviceRepository repository) : ICommandHandler
         if (await repository.CreateAsync(device, ct) is var deviceCreated && !deviceCreated)
             return CommandResult<CreateDeviceCommandResult>.BadRequest("An error has ocurred when trying to create a new device.");
 
-        return CommandResult<CreateDeviceCommandResult>.Ok(new CreateDeviceCommandResult(device.Id));
+        return CommandResult<CreateDeviceCommandResult>.Created();
     }
 }
