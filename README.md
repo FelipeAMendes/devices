@@ -11,7 +11,7 @@ The API allows you to:
 
 - **Create** a new device
 - **Update** an existing device
-- **Delete** a device  
+- **Delete** a device
 - **Fetch** a single device
 - **Fetch all devices**
 - **Filter devices** by brand
@@ -19,27 +19,29 @@ The API allows you to:
 
 ---
 
-# 🐳 Running the Project with Docker
+# 🐳 Running the Project with Visual Studio (Docker Support Enabled)
 
-This application is fully **containerized**, so all you need is:
+This application is fully **containerized**, and the easiest way to run it is directly through **Visual Studio**, which will take care of Docker for you.
 
-- **Docker**
-- **Docker Compose**
+## ▶️ How to Run Using Visual Studio
 
-If the command `docker ps` works on your machine, you're good to go.
+1. Open the solution (`.sln`) in **Visual Studio**.
+2. Make sure Docker Desktop is running.
+3. At the top toolbar, select the run option that looks like:
 
----
-
-# ▶️ How to Run the API
-
-1. Open your terminal and navigate to the folder containing `docker-compose.yml`.
-2. Run:
-
-```bash
-docker-compose up --build
+```
+Docker Compose
 ```
 
-Once everything starts, the API will be available at:
+4. Press **F5** or click **Run**.
+
+Visual Studio will:
+
+- Build the Docker images  
+- Start the required containers  
+- Launch the API automatically  
+
+Once everything is up, the API will be available at:
 
 ```
 https://localhost:8081/devices
@@ -160,26 +162,19 @@ DELETE https://localhost:8081/devices/3fa85f64-5717-4562-b3fc-2c963f66afa6
 
 # 🛑 Stopping the Application
 
-To shut everything down:
-
-```bash
-docker-compose down
-```
-
-If you also want to remove volumes:
-
-```bash
-docker-compose down -v
-```
+To stop everything, simply **stop debugging** in Visual Studio (Shift + F5).  
+Visual Studio will automatically shut down the containers it started.
 
 ---
 
 # 🔄 Rebuilding After Code Changes
 
-If you modify the code and need Docker to rebuild:
+Visual Studio will rebuild automatically when you press **F5**, but if Docker caching causes issues:
 
-```bash
-docker-compose up --build
-```
+1. Right-click the project  
+2. Select **Clean**  
+3. Then select **Rebuild**  
+4. Run again with **Docker** selected  
 
 ---
+
